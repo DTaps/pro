@@ -1,0 +1,30 @@
+oc_ration:
+    resource: "@OCRationBundle/Resources/config/routing.yml"
+    prefix:   /
+
+oc_cours:
+    resource: "@OCCoursBundle/Resources/config/routing.yml"
+    prefix:   /
+
+oc_cheval:
+    resource: "@OCChevalBundle/Resources/config/routing.yml"
+    prefix:   /
+
+oc_evenement:
+    resource: "@OCEvenementBundle/Resources/config/routing.yml"
+    prefix:   /
+
+oc_annonce:
+    resource: "@OCAnnonceBundle/Resources/config/routing.yml"
+    prefix:   /
+
+oc_user:
+    resource: "@OCUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+fos_user:
+      resource: "@FOSUserBundle/Resources/config/routing/all.xml"

@@ -1,0 +1,31 @@
+oc_evenement_afficher:
+    path:     /evenement
+    defaults: { _controller: OCEvenementBundle:Evenement:index }
+    
+oc_evenement_add:
+    path:     /evenement/admin/add
+    defaults: { _controller: OCEvenementBundle:Evenement:add }
+    
+oc_evenement_sup:
+    path:     /evenement/admin/sup/{id}
+    defaults: { _controller: OCEvenementBundle:Evenement:sup }
+    requirements:
+        id: \d+
+
+oc_evenement_search:
+    path:     /evenement/search
+    defaults: { _controller: OCEvenementBundle:Evenement:search }
+
+oc_evenement_affparticipants:
+     path:    /evenement/admin/{id}
+     defaults: { _controller: OCEvenementBundle:Evenement:affparticipants }
+     requirements:
+        id: \d+
+     
+oc_evenement_participation:
+    path:     /evenement/{id}/{choix}
+    defaults: { _controller: OCEvenementBundle:Evenement:participation }
+    requirements:
+        id: \d+
+    
+    

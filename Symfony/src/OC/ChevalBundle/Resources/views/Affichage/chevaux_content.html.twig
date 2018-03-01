@@ -1,0 +1,30 @@
+<h1>Liste Chevaux</h1>
+
+<table>
+    {% for cheval in chevaux %}
+    <tr onMouseOut="javascript:this.style.background='#ffffff';" 
+        onMouseOver="javascript:this.style.background='#008080';"
+        onClick="location.href=' {{ path('oc_cheval_fiche', {'id': cheval.id} ) }} ';">
+  
+            <td> {{ cheval.nom }} </td>
+            <td> {{ cheval.race }} </td>
+            <td> {{ cheval.proprietaire }} </td>
+            {% if is_granted('ROLE_ADMIN') %}
+                <td><a href="{{ path('oc_cheval_sup', {'id': cheval.id}) }}">
+                        <img src="{{ asset('bundles/ocannonce/images/sup2.png') }}"></a></td>
+            {% endif %}
+    </tr>
+    {% endfor %}
+</table>
+
+  {% if app.session.flashBag.has('notice') %}
+        <div class="alert alert-success">
+            {% for msg in app.session.flashBag.get('notice') %}
+                {{ msg }}
+            {% endfor %}
+        </div>
+    {% endif %}
+    
+{% if is_granted('ROLE_ADMIN') %}
+  <div><a href="{{ path('oc_cheval_add') }}">Ajouter un cheval</a></div>
+{% endif %}

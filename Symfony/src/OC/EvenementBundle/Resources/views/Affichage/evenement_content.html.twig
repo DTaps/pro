@@ -1,0 +1,11 @@
+<h1>Participants à l'évènement {{ evenement.type }} du {{ evenement.date|localizeddate('medium', 'none') }}</h1>
+<table>
+{% for participant in evenement.participants %}
+    <tr>
+        <td>{{participant.username}}</td>
+        <td>{{participant.nom}}</td>
+        <td>{{participant.prenom}}</td>
+</tr>
+{% endfor %}
+
+</table>

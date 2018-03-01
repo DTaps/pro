@@ -1,0 +1,3 @@
+oc_ration_homepage:
+    path:     /ration
+    defaults: { _controller: OCRationBundle:Default:index }

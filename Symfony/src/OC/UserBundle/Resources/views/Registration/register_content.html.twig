@@ -1,0 +1,21 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+    {{ form_row(form.email) }}
+    {{ form_row(form.username) }}
+    {{ form_row(form.plainPassword) }}
+    {{ form_row(form.nom) }}
+    {{ form_row(form.prenom) }}
+    {{ form_row(form.date_de_naissance) }}
+    {{ form_row(form.num_telephone) }}
+    {{ form_row(form.file) }}
+    <h2>Contact d'urgence</h2>
+    {{ form_row(form.CU_nom) }}
+    {{ form_row(form.CU_prenom) }}
+    {{ form_row(form.CU_num_telephone) }}
+    {{ form_row(form.CU_profession) }}
+    {{ form_row(form.CU_addr_postale) }}
+    <div>
+        <input type="submit" value="{{ 'registration.submit'|trans }}" />
+    </div>
+{{ form_end(form) }}

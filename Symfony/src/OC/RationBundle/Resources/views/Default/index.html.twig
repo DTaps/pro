@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ration</title>
+    <script src="{{ asset('bundles/ocration/js/nouriture.js') }}"></script>
+  </head>
+<body>
+<button type="button" value="modifier" id="modifier">Modifier</button>
+<button type="button" value="sauver" id ="sauver">Sauvegarder</button>
+<button type="button" value="imprimer" id="imprimer" onclick="Imprimer()">Imprimer</button>
+<div>
+<table style="float: left">
+  <tr>
+    <th>Nom</th>
+    <th>Matin</th> 
+    <th>Midi</th>
+    <th>Soir</th>
+  </tr>
+  {% for ration in rations %}
+        <tr>{{ ration.nom }}</tr>
+        <tr>{{ ration.matin }}</tr>
+        <tr>{{ ration.midi }}</tr>
+        <tr>{{ ration.soir }}</tr>
+    {% endfor %}
+</table>
+<table style="float: left">
+  <tr>
+    <th>Nom</th>
+    <th>Matin</th> 
+    <th>Midi</th>
+    <th>Soir</th>
+  </tr>
+  {% for ration in rations %}
+        <tr>{{ ration.nom }}</tr>
+        <tr>{{ ration.matin }}</tr>
+        <tr>{{ ration.midi }}</tr>
+        <tr>{{ ration.soir }}</tr>
+    {% endfor %}
+</table>
+</div>
+</body>
+</html>

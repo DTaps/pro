@@ -1,0 +1,9 @@
+oc_cours_homepage:
+    path:     /cours
+    defaults: { _controller: OCCoursBundle:Default:index }
+
+oc_eleve_sup:
+    path: /cours/admin/sup/{id}
+    defaults: { _controller: OCCoursBundle:Default:sup }
+    requirements:
+        id: \d+

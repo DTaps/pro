@@ -1,0 +1,30 @@
+oc_cheval_afficher:
+    path:    /cheval
+    defaults: { _controller: OCChevalBundle:Cheval:index }
+    
+oc_cheval_add:
+    path:    /cheval/admin/add
+    defaults: { _controller: OCChevalBundle:Cheval:add }
+    
+oc_cheval_fiche:
+     path:    /cheval/fiche/{id}
+     defaults: { _controller: OCChevalBundle:Cheval:fiche }
+     requirements:
+        id: \d+
+        
+oc_cheval_sup:
+    path:     /cheval/admin/sup/{id}
+    defaults: {_controller: OCChevalBundle:Cheval:sup }
+    requirements:
+        id: \d+
+
+oc_cheval_mod:
+    path:     /cheval/admin/mod/{id}
+    defaults: {_controller: OCChevalBundle:Cheval:modifier }
+    requirements:
+        id: \d+
+oc_cheval_sup_soin:
+    path:     /cheval/admin/sup/soin/{id}
+    defaults: {_controller: OCChevalBundle:Cheval:supSoin }
+    requirements:
+        id: \d+

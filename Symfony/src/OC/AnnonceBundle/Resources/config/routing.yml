@@ -1,0 +1,14 @@
+oc_annonce_afficher:
+    path:     /annonce
+    defaults: { _controller: OCAnnonceBundle:Annonce:index }
+
+oc_annonce_add:
+    path:     /annonce/add
+    defaults: { _controller: OCAnnonceBundle:Annonce:add }
+
+
+oc_annonce_sup:
+    path: /annonce/{id}
+    defaults: { _controller: OCAnnonceBundle:Annonce:sup }
+    requirements:
+        id: \d+

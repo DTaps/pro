@@ -1,0 +1,369 @@
+
+  <body>
+ {% if is_granted('ROLE_ADMIN') %}     
+  <h3>Formulaire ajout élève</h3>
+{{form(form)}}
+{% endif %}
+
+
+<div class="contaier">
+<div class="container">
+	<h1>Mardi</h1>
+	<table class="table" style="background-color: white;">
+		<thead>
+			<tr>
+				<th>17h30-18h30</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for bla in un %}
+			<tr>
+				<td>{{bla.username}}
+                                    {% if is_granted('ROLE_ADMIN') %}
+                                    <a href="{{ path('oc_eleve_sup', {'id': bla.id}) }}">
+                        <img src="{{ asset('bundles/ocannonce/images/sup2.png') }}"></a> 
+                                    {% endif %}
+                                </td>
+			</tr>
+			{% endfor %}
+			<thead>
+				<tr>
+					<th>19h00-20h00</th>
+				</tr>
+			</thead>
+			<tbody>
+		{% for bla1 in deux %}
+			<tr>
+				<td>{{bla1.username}}
+                                   {% if is_granted('ROLE_ADMIN') %}
+                                    <a href="{{ path('oc_eleve_sup', {'id': bla1.id}) }}">
+                        <img src="{{ asset('bundles/ocannonce/images/sup.png') }}"></a>
+                                   {% endif %}</td>
+			</tr>
+			{% endfor %}
+			</tbody>
+		</tbody>
+	</table>
+</div>
+
+
+<div class="container">
+	<h1>Mercredi</h1>
+	<table class="table table-bordered" style="background-color: white;">
+		<thead>
+			<tr>
+				<th>14h00-15h00</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for bla2 in trois %}
+			<tr>
+				<td>{{bla2.username}}
+                                    {% if is_granted('ROLE_ADMIN') %}
+                                    <a href="{{ path('oc_eleve_sup', {'id': bla2.id}) }}">
+                        <img src="{{ asset('bundles/ocannonce/images/sup.png') }}"></a>
+                                    {% endif %}
+                                </td>
+			</tr>
+			{% endfor %}
+		</tbody>
+		<thead><tr><th>15h00-16h00</th></tr></thead>
+		<tbody>
+		{% for bla3 in quatre %}
+			<tr>
+				<td>{{bla3.username}} 
+                                    {% if is_granted('ROLE_ADMIN') %}
+                                    <a href="{{ path('oc_eleve_sup', {'id': bla3.id}) }}">
+                        <img src="{{ asset('bundles/ocannonce/images/sup.png') }}"></a>
+                                   {% endif %}
+                                </td>
+			</tr>
+			{% endfor %}
+		</tbody>
+		<thead><tr><th>16h00-17h00</th></tr></thead>
+		<tbody>
+		{% for bla4 in cinq %}
+			<tr>
+				<td>{{bla4.username}} 
+                                    {% if is_granted('ROLE_ADMIN') %}
+                                    <a href="{{ path('oc_eleve_sup', {'id': bla4.id}) }}">
+                        <img src="{{ asset('bundles/ocannonce/images/sup.png') }}"></a>
+                                    {% endif %}
+                                </td>
+			</tr>
+			{% endfor %}
+		</tbody>
+		<thead><tr><th>17h00-18h00</th></tr></thead>
+		<tbody>
+		{% for bla5 in six %}
+			<tr>
+				<td>{{bla5.username}} 
+                                    {% if is_granted('ROLE_ADMIN') %}
+                                    <a href="{{ path('oc_eleve_sup', {'id': bla5.id}) }}">
+                        <img src="{{ asset('bundles/ocannonce/images/sup.png') }}"></a>
+                                    {% endif %}
+                                </td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+
+<div class="container">
+	<h1>Vendredi</h1>
+	<table class="table table-bordered" style="background-color: white;">
+		<thead>
+			<tr>
+				<th>17h30-18h30</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for bla6 in sept %}
+			<tr>
+				<td>{{bla6.username}} 
+                                    {% if is_granted('ROLE_ADMIN') %}
+                                    <a href="{{ path('oc_eleve_sup', {'id': bla6.id}) }}">
+                        <img src="{{ asset('bundles/ocannonce/images/sup.png') }}"></a>
+                                    {% endif %}
+                                    </td>
+			</tr>
+			{% endfor %}
+		</tbody>
+		<thead>
+			<tr>
+				<th>18h45-19h45</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for bla7 in huit %}
+			<tr>
+				<td>{{bla7.username}} 
+                                    {% if is_granted('ROLE_ADMIN') %}
+                                    <a href="{{ path('oc_eleve_sup', {'id': bla7.id}) }}">
+                        <img src="{{ asset('bundles/ocannonce/images/sup.png') }}"></a>
+                                    {% endif %}
+                                </td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+<div class="container">
+	<h1>Samedi</h1>
+	<table class="table table-bordered" style="background-color: white;">
+		<thead>
+			<tr>
+				<th>10h00-11h00</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for bla8 in neuf %}
+			<tr>
+				<td>{{bla8.username}} 
+                                    {% if is_granted('ROLE_ADMIN') %}
+                                    <a href="{{ path('oc_eleve_sup', {'id': bla8.id}) }}">
+                        <img src="{{ asset('bundles/ocannonce/images/sup.png') }}"></a>
+                                    {% endif %}
+                                </td>
+			</tr>
+			{% endfor %}
+		</tbody>
+		<thead>
+			<tr>
+				<th>11h00-12h00</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for bla9 in dix %}
+			<tr>
+				<td>{{bla9.username}}  
+                                    {% if is_granted('ROLE_ADMIN') %}
+                                    <a href="{{ path('oc_eleve_sup', {'id': bla9.id}) }}">
+                        <img src="{{ asset('bundles/ocannonce/images/sup.png') }}"></a>
+                                    {% endif %}
+                                    </td>
+			</tr>
+			{% endfor %}
+		</tbody>
+		<thead>
+			<tr>
+				<th>14h00-15h00</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for bla10 in onze %}
+			<tr>
+				<td>{{bla10.username}}  
+                                    {% if is_granted('ROLE_ADMIN') %}
+                                    <a href="{{ path('oc_eleve_sup', {'id': bla10.id}) }}">
+                        <img src="{{ asset('bundles/ocannonce/images/sup.png') }}"></a>
+                                    {% endif %}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+		<thead>
+			<tr>
+				<th>15h00-16h00</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for bla11 in douze %}
+			<tr>
+				<td>{{bla11.username}} 
+                                    {% if is_granted('ROLE_ADMIN') %}
+                                    <a href="{{ path('oc_eleve_sup', {'id': bla11.id}) }}">
+                        <img src="{{ asset('bundles/ocannonce/images/sup.png') }}"></a>
+                                    {% endif %}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+		<thead>
+			<tr>
+				<th>16h00-17h00</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for bla12 in treize %}
+			<tr>
+				<td>{{bla12.username}}  
+                                    {% if is_granted('ROLE_ADMIN') %}
+                                    <a href="{{ path('oc_eleve_sup', {'id': bla12.id}) }}">
+                        <img src="{{ asset('bundles/ocannonce/images/sup.png') }}"></a>
+                                    {% endif %}
+                                </td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+<div class="container">
+	<h1>Dimanche</h1>
+	<table class="table table-bordered" style="background-color: white;">
+		<thead>
+			<tr>
+				<th>10h00-11h00</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for bla13 in quatorze %}
+			<tr>
+				<td>{{bla13.username}}  
+                                    {% if is_granted('ROLE_ADMIN') %}
+                                    <a href="{{ path('oc_eleve_sup', {'id': bla13.id}) }}">
+                        <img src="{{ asset('bundles/ocannonce/images/sup.png') }}"></a>
+                                    {% endif %}
+                                    </td>
+			</tr>
+			{% endfor %}
+		</tbody>
+		<thead>
+			<tr>
+				<th>11h00-12h00</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for bla14 in quinze %}
+			<tr>
+				<td>{{bla14.username}}   
+                                    {% if is_granted('ROLE_ADMIN') %}
+                                    <a href="{{ path('oc_eleve_sup', {'id': bla14.id}) }}">
+                        <img src="{{ asset('bundles/ocannonce/images/sup.png') }}"></a>
+                                    {% endif %}
+                                </td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+</body>
+
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		var select = $('#oc_coursbundle_elevepresence_plage');
+		select.html("");
+		select.append($('<option>', {
+			value : "17h30-18h30",
+			text: '17h30-18h30'
+		}));
+		select.append($('<option>', {
+			value : "19h30-20h00",
+			text: '19h30-20h00'
+		}));
+		var jour = $('#oc_coursbundle_elevepresence_jour');
+		jour.on('change', function(value) {
+			select.html("");
+			if(this.value=="mercredi") {
+				select.append($('<option>', {
+					value : '14h00-15h00',
+					text: '14h00-15h00'
+				}));
+				select.append($('<option>', {
+					value : '15h00-16h00',
+					text: '15h00-16h00'
+				}));
+				select.append($('<option>', {
+					value : '16h00-17h00',
+					text: '16h00-17h00'
+				}));
+				select.append($('<option>', {
+					value : '17h00-18h00',
+					text: '17h00-18h00'
+				}));
+			}
+			if(this.value=="vendredi") {
+				select.append($('<option>', {
+					value : '17h30-18h30',
+					text: '17h30-18h30'
+				}));
+				select.append($('<option>', {
+					value : '18h45-19h45',
+					text: '18h45-19h45'
+				}));
+			}
+			if(this.value=="samedi") {
+				select.append($('<option>', {
+					value : '10h00-11h00',
+					text: '10h00-11h00'
+				}));
+				select.append($('<option>', {
+					value : '11h00-12h00',
+					text: '11h00-12h00'
+				}));
+				select.append($('<option>', {
+					value : '14h00-15h00',
+					text: '14h00-15h00'
+				}));
+				select.append($('<option>', {
+					value : '15h00-16h00',
+					text: '15h00-16h00'
+				}));
+				select.append($('<option>', {
+					value : '16h00-17h00',
+					text: '16h00-17h00'
+				}));
+			}
+			if(this.value=="dimanche") {
+				select.append($('<option>', {
+					value : '10h00-11h00',
+					text: '10h00-11h00'
+				}));
+				select.append($('<option>', {
+					value : '11h00-12h00',
+					text: '11h00-12h00'
+				}));
+			}
+			if(this.value=="mardi") {
+				select.append($('<option>', {
+					value : '17h30-18h30',
+					text: '17h30-18h30'
+				}));
+				select.append($('<option>', {
+					value : '19h00-20h00',
+					text: '19h00-20h00'
+				}));
+			}
+		});
+
+	});
+</script>

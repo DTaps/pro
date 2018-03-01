@@ -1,0 +1,36 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+
+<h1>Cavalier</h1>
+<div class="fos_user_user_show">
+    <p>{{ 'Numéro de licence' }}: {{ user.username }}</p>
+    <p>{{ 'Nom' }}: {{ user.nom }}</p>
+    <p>{{ 'Prénom' }}: {{ user.prenom }}</p>
+    <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
+    <p>{{ 'Numéro de téléphone' }}: {{ user.numtelephone }}</p>
+    {% if user.pictureName %}
+        <div>
+    <img src="{{ asset('uploads/pictures/'~ user.pictureName) }}"
+         style="width:100px; height:100px;">
+        </div>
+    {% else %}
+        <div>
+        Pas de photo de profil
+        </div>
+    {% endif %}
+    
+    <h3>Contact d'urgence</h3>
+
+<p>{{ 'Nom' }}: {{ user.cunom }}</p>
+<p>{{ 'Prénom' }}: {{ user.cuprenom }}</p>
+<p>{{ 'Numéro de téléphone' }}: {{ user.cunumtelephone }}</p>
+<p>{{ 'Adresse' }}: {{ user.cuaddrpostale }}</p>
+<p>{{ 'Profesion' }}: {{ user.cuprofession }}</p>
+</div>
+{% if is_granted('ROLE_ADMIN') %}
+<div><a href="{{path('oc_user_cavaliers')}}">Voir tous les cavaliers</a></div>
+{% endif %}
+<div><a href="{{path('fos_user_profile_edit')}}">Modifier</a></div>
+<div><a href="{{path('fos_user_change_password')}}">Changer de mot de passe</a></div>
+
+

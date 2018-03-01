@@ -1,0 +1,5 @@
+services:
+    oc_user.form.registration:
+        class: OC\UserBundle\Form\RegistrationType
+        tags: 
+          - { name: form.type, alias: oc_user_registration }

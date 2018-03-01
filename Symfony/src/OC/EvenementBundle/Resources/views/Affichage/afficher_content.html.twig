@@ -1,0 +1,55 @@
+<body>
+    <h1>La page d'évènement</h1>
+
+{% if is_granted('ROLE_ADMIN') %}
+  <li><a href="{{ path('oc_evenement_add') }}">Ajouter un évènement</a></li>
+{% endif %}
+<a href="{{path('oc_evenement_afficher') }}">Afficher tous les évènements</a>
+<table>
+    {% for evenement in listeEvenement %}
+      
+    <tr {% if is_granted('ROLE_ADMIN') %} 
+        onMouseOut="javascript:this.style.background='#ffffff';" 
+        onMouseOver="javascript:this.style.background='#008080';"
+        onClick="location.href=' {{ path('oc_evenement_affparticipants', {'id': evenement.id} ) }} ';"
+         {% endif %}>  
+        
+            <td> {{ evenement.type }} </td>
+            <td> {{ evenement.date|localizeddate('medium', 'none') }} </td>
+            <td> {{ evenement.description }} </td>
+            <td> <a href="{{ path('oc_evenement_participation', {'id':evenement.id, 'choix':'participant'}) }}">Participe</a></td>
+            <td> <a href="{{ path('oc_evenement_participation', {'id':evenement.id, 'choix':'nonparticipant'}) }}">Ne participe pas</a></td>
+            {% if is_granted('ROLE_ADMIN') %}
+                <td><a href="{{ path('oc_evenement_sup', {'id': evenement.id}) }}">
+                        <img src="{{ asset('bundles/ocannonce/images/sup2.png') }}"></a></td>
+            {% endif %}
+    </tr>
+    {% endfor %}
+</table>
+<div>
+        {{ form_start(formulaire, { 'attr': {'class': 'navbar-form navbar-left'} }) }}
+            <div class="form-group">
+                {{ form_widget(formulaire.search, { 'attr': {'class': 'form-control'} }) }}
+                {{ form_widget(formulaire.send, { 'attr': {'class': 'btn btn-default'} }) }}
+            </div>
+ 
+        {{ form_rest(formulaire) }}
+        {{ form_end(formulaire) }}
+</div>
+  {% if app.session.flashBag.has('message') %}
+      <div>
+          {% for msg in app.session.flashBag.get('message') %}
+                {{ msg }}
+            {% endfor %}
+      </div>
+  {% endif %}
+  
+  
+  {% if app.session.flashBag.has('notice') %}
+        <div class="alert alert-success">
+            {% for msg in app.session.flashBag.get('notice') %}
+                {{ msg }}
+            {% endfor %}
+        </div>
+    {% endif %}
+</body>

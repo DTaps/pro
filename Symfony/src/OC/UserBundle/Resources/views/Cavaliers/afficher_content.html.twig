@@ -1,0 +1,13 @@
+<h1>Cavaliers</h1>
+<body>
+    <table>
+        {% for cavalier in cavaliers %}
+            <tr onMouseOut="javascript:this.style.background='#ffffff';" 
+                onMouseOver="javascript:this.style.background='#008080';"
+                onClick="location.href='{{path('oc_user_cavalier', {'id': cavalier.id})}}';">
+                <td>{{cavalier.nom}}</td>
+                <td>{{cavalier.prenom}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>

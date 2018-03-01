@@ -1,0 +1,27 @@
+{% trans_default_domain 'OCAnnonceBundle' %}
+
+<body>
+
+    <h1>La page d'annonce</h1>
+
+
+<table>
+    {% for annonce in listeAnnonce %}
+    <tr>
+  
+            <td> {{ annonce.message }} </td>
+            <td> {{ annonce.date|localizeddate('long', 'short') }} </td>
+            {% if is_granted('ROLE_ADMIN') %}
+                <td><a href="{{ path('oc_annonce_sup', {'id': annonce.id}) }}">
+                        <img src="{{ asset('bundles/ocannonce/images/sup2.png') }}"></a></td>
+            {% endif %}
+    
+    </tr>
+    {% endfor %}
+</table>
+    
+{% if is_granted('ROLE_ADMIN') %}
+  <li><a href="{{ path('oc_annonce_add') }}">Ajouter une annonce</a></li>
+{% endif %}
+
+</body>

@@ -1,0 +1,40 @@
+# app/config/security.yml
+security:
+    encoders:
+        FOS\UserBundle\Model\UserInterface: bcrypt
+
+    role_hierarchy:
+        ROLE_ADMIN:       ROLE_USER
+        ROLE_SUPER_ADMIN: ROLE_ADMIN
+
+    providers:
+        fos_userbundle:
+            id: fos_user.user_provider.username
+
+    firewalls:
+        main:
+            pattern: ^/
+            form_login:
+                provider: fos_userbundle
+                csrf_token_generator: security.csrf.token_manager
+            logout:
+               path: fos_user_security_logout
+               target: oc_user_homepage
+            anonymous:    true
+
+    access_control:
+        
+        - { path: ^/profile/admin/ , role: ROLE_ADMIN }
+        - { path: ^/cours/admin/ , role: ROLE_ADMIN }
+        - { path: ^/cours , role: ROLE_USER }
+        - { path: ^/cheval/admin/, role: ROLE_ADMIN }
+        - { path: ^/cheval, role: ROLE_USER }
+        - { path: ^/evenement/admin/, role: ROLE_ADMIN }
+        - { path: ^/evenement/search, role: ROLE_USER } 
+        
+        - { path: ^/evenement, role: ROLE_USER }
+        - { path: ^/annonce, role: ROLE_USER }
+        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/, role: ROLE_ADMIN }

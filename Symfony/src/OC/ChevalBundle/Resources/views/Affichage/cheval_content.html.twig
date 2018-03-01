@@ -1,0 +1,61 @@
+<h2>{{cheval.nom}}</h2>
+
+<p>Race: {{cheval.race}}</p>
+<p>Date de naissance: {{cheval.dateDeNaissance|localizeddate('medium', 'none')}}</p>
+<p>Robe: {{cheval.robe}}</p>
+<p>Sexe: {{cheval.sexe}}</p>
+<p>Père: {{cheval.pere}}</p>
+<p>Mère: {{cheval.mere}}</p>
+<p>Description: {{cheval.description}}</p>
+{% if cheval.pictureName %}
+        <div>
+    <img src="{{ asset('uploads/pictures/'~ cheval.pictureName) }}"
+         style="width:100px; height:100px;">
+        </div>
+    {% else %}
+        <div>
+        Pas de photo de profil
+        </div>
+    {% endif %}
+{% if is_granted('ROLE_ADMIN') %}
+    <div><a href="{{path('oc_cheval_mod', {'id': cheval.id})}}">Modifier</a></div>  
+{% endif %}
+    
+<h3>Suivi des soins</h3>
+<table>
+    <thead>
+    <tr>
+      <th>Date</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+    {% for soin in soins %}
+        <tr>
+            <td>{{soin.date|localizeddate('medium', 'none')}}</td>
+            <td>{{soin.type}}</td>
+            {% if is_granted('ROLE_ADMIN') %}
+                <td><a href="{{ path('oc_cheval_sup_soin', {'id': soin.id}) }}">
+                    <img src="{{ asset('bundles/ocannonce/images/sup2.png') }}"></a></td>
+            {% endif %}
+        </tr>
+    {% endfor %}
+    {% if is_granted('ROLE_ADMIN') %}
+            {{form_start(form)}}
+            <tr>
+                <td>{{ form_widget(form.date) }}</td>
+                <td>{{ form_widget(form.type) }}</td>
+                <td>{{ form_row(form.ajouter) }}</td>
+            </tr>
+            {{ form_rest(form) }}
+            {{ form_end(form) }}
+        {% endif %}
+</table>
+
+            
+ {% if app.session.flashBag.has('notice') %}
+        <div class="alert alert-success">
+            {% for msg in app.session.flashBag.get('notice') %}
+                {{ msg }}
+            {% endfor %}
+        </div>
+ {% endif %}
